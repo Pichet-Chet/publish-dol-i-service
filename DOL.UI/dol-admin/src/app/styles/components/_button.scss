@@ -1,0 +1,59 @@
+.ant-btn {
+    @apply font-semibold rounded-md;
+
+    &-primary {
+        @apply bg-primary hover:bg-primary focus:bg-primary opacity-100 hover:opacity-80 border border-primary hover:border-primary focus:border-primary;
+
+        &[disabled] {
+            @apply bg-gray-100 text-white border border-gray-100;
+        }
+    }
+
+    &-default {
+        @apply bg-white hover:bg-white focus:bg-white opacity-100 hover:opacity-80 border border-primary hover:border-primary focus:border-primary text-primary hover:text-primary focus:text-primary;
+
+        &[disabled] {
+            @apply bg-white text-gray-500 border border-gray-100;
+        }
+    }
+
+    &-secondary {
+        @apply bg-secondary hover:bg-secondary focus:bg-secondary opacity-100 hover:opacity-80 border border-secondary hover:border-secondary focus:border-secondary text-black focus:text-black hover:text-black;
+
+        &[disabled] {
+            @apply bg-white text-gray-500 border border-gray-100;
+        }
+    }
+
+    &-dangerous {
+        @apply bg-white hover:bg-white focus:bg-white opacity-100 hover:opacity-80 border border-red-100 hover:border-red-100 focus:border-red-100 text-red-500 hover:text-red-500 focus:text-red-500;
+
+        &[disabled] {
+            @apply bg-white text-gray-500 border border-gray-100;
+        }
+    }
+
+    &-success {
+        @apply bg-success hover:bg-success focus:bg-success opacity-100 hover:opacity-80 border border-success hover:border-success focus:border-success text-white focus:text-white hover:text-white;
+
+        &[disabled] {
+            @apply bg-white text-gray-500 border border-gray-100;
+        }
+    }
+
+    &-warning {
+        @apply bg-warning hover:bg-warning focus:bg-warning opacity-100 hover:opacity-80 border border-warning hover:border-warning focus:border-warning text-white focus:text-white hover:text-white;
+
+        &[disabled] {
+            @apply bg-white text-gray-500 border border-gray-100;
+        }
+    }
+
+    &.ant-btn-background-ghost {
+        @apply bg-gray-100 border-gray-100 focus:border-gray-100 hover:border-gray-100 hover:bg-gray-100 focus:bg-gray-100 text-white hover:text-white opacity-100 hover:opacity-80 focus:text-white;
+
+        &[disabled] {
+            @apply bg-white text-gray-500 border border-gray-100;
+        }
+    }
+}

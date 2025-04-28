@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// components
+// @import "./components/_button";
+// @import "./components/_input";
+
+.heroicon-sw-2 path {
+    stroke-width: 2 !important;
+}
+
+@font-face {
+    font-family: "sukhumvit";
+    src: local("sukhumvit"), url(./fonts/SukhumvitSet-Light.woff) format("woff");
+}
+
+@font-face {
+    font-family: "ekkamai";
+    src: local("ekkamai"), url(./fonts/EkkamaiStandard-Light.woff) format("woff");
+}
+
+@font-face {
+    font-family: "rsutext";
+    src: local("ekkamai"), url(./fonts/RSU-Text_Regular.woff) format("woff");
+}
+
+/* thai */
+@font-face {
+  font-family: 'Noto Sans Thai';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosansthai/v25/iJWQBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcdfKI2hX2g.woff2) format('woff2');
+  unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Sans Thai';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosansthai/v25/iJWQBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcdfMo2hX2g.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Sans Thai';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosansthai/v25/iJWQBXeUZi_OHPqn4wq6hQ2_hbJ1xyN9wd43SofNWcdfPI2h.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    position: relative;
+    font-family: "notosansthai" !important;
+    // font-weight: bold;
+    // font-size: 1.5rem;
+}
+
+input[type=text] {
+    background: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    padding: 7px 11px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 8px;
+}
+
+input[type=text]:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(5 145 255 / 10%);
+}
+
+// .react-select-container {
+//     font-size: 0.875rem;
+// }
+
+// .treeselect .ant-tree-node-selected {
+//     background-color: inherit !important;
+// }
+
+// .treeselect .ant-tree-node-content-wrapper {
+//     padding: 0 !important;
+// }
+
+// .treeselect .ant-tree-switcher-noop {
+//     display: none !important;
+// }
+
+// .ant-picker-large .ant-picker-input>input {
+//     font-size: 0.875rem;
+// }
+
+// .placeholder-text {
+//     color: #bcbccd;
+// }
+
+// .card-form-action>.ant-card-actions {
+//     border: none;
+// }
+
+// .card-form-action>.ant-card-actions>li>span {
+//     cursor: unset;
+// }
