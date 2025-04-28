@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+    <PackageReference Include="WatchDog.NET" Version="1.4.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" />
+    <PackageReference Include="ClosedXML" Version="0.102.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.2" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.6" />
+    <PackageReference Include="MetadataExtractor" Version="2.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Models\Response\" />
+    <None Remove="Models\Filters\" />
+    <None Remove="Models\Constants\" />
+    <None Remove="Models\Pagination\" />
+    <None Remove="Repositories\" />
+    <None Remove="Services\" />
+    <None Remove="Controllers\" />
+    <None Remove="Repositories\Interface\" />
+    <None Remove="Extension\" />
+    <None Remove="Extension\Helper\" />
+    <None Remove="Models\Customs\" />
+    <None Remove="Services\Validation\" />
+    <None Remove="Services\Helper\" />
+    <None Remove="Models\Customs\Request\" />
+    <None Remove="Models\Customs\Response\" />
+    <None Remove="Models\Sorting\" />
+    <None Remove="Resource\" />
+    <None Remove="Services\GenerateDocument\" />
+    <None Remove="Models\PaperGeneration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Response\" />
+    <Folder Include="Models\Filters\" />
+    <Folder Include="Models\Constants\" />
+    <Folder Include="Models\Pagination\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Services\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Repositories\Interface\" />
+    <Folder Include="Extension\" />
+    <Folder Include="Extension\Helper\" />
+    <Folder Include="Models\Customs\" />
+    <Folder Include="Services\Validation\" />
+    <Folder Include="Services\Helper\" />
+    <Folder Include="Models\Customs\Request\" />
+    <Folder Include="Models\Customs\Response\" />
+    <Folder Include="Models\Sorting\" />
+    <Folder Include="Resource\" />
+    <Folder Include="Services\GenerateDocument\" />
+    <Folder Include="Models\PaperGeneration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  </ItemGroup>
+</Project>
