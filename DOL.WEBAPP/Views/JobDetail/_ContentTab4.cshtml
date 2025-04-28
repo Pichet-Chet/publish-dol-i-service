@@ -1,0 +1,1531 @@
+﻿@model DOL.WEBAPP.Models.Response.SiteInformationResponse
+
+
+
+<div class="row">
+
+    <div class="col-12">
+        <div class="card shadow mb-4">
+            <a href="#collapseCardTab4" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardTab4">
+                <h6 class="m-0 custom-text-collapse-header">แนบรูปภาพ - งานติดตั้งอุปกรณ์</h6>
+            </a>
+            <div class="collapse" id="collapseCardTab4">
+                <div class="card-body">
+                    <form class="tab4 needs-validation" id="tab4" novalidate>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image1) ? "custom-form-label" : "custom-form-label-danger")">ภาพหน้าสำนักงาน</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image2) ? "custom-form-label" : "custom-form-label-danger")">ภาพตู้ RACK Network ที่สำนักงาน </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image1))
+                                    {
+                                        <img id="image-show-1" src="@Model.Image1.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-1">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-1" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-1" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image2))
+                                    {
+                                        <img id="image-show-2" src="@Model.Image2.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-2">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-2" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-2" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div id="zone-firewall" class="@(Model.SiteNetworkId == 2 ? "" : "d-none")">
+                            <div class="row">
+                                <div class="col-12">
+                                    <b>Firewall 2 ชุด</b>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="@(!string.IsNullOrEmpty(Model.Image5) ? "custom-form-label" : "custom-form-label-danger")">อุปกรณ์ Palo alto PA-415 ชุดที่ 1</label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="@(!string.IsNullOrEmpty(Model.Image6) ? "custom-form-label" : "custom-form-label-danger")">อุปกรณ์ Palo alto PA-415 ชุดที่ 2</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6 @(Model.EquipmentFirewall1Sn == "-" ? "d-none" : "")">
+                                    <div class="file-upload custom-image-col-center">
+                                        @if (!string.IsNullOrEmpty(Model.Image5))
+                                        {
+                                            <img id="image-show-5" src="@Model.Image5.ToString()" alt="Image" width="100%">
+                                        }
+
+                                        <div class="file-upload-content" id="file-upload-content-5">
+                                            <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-5" width="100%" />
+                                        </div>
+                                        <br />
+                                        @{
+                                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                            {
+                                                <label class="custom-btn-upload">
+                                                    <i class="fa fa-upload"></i>
+                                                    Browse
+                                                    <input type="file" size="60" id="file-upload-input-5" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                                </label>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="col-6 @(Model.EquipmentFirewall2Sn == "-" ? "d-none" : "")">
+                                    <div class="file-upload custom-image-col-center">
+                                        @if (!string.IsNullOrEmpty(Model.Image6))
+                                        {
+                                            <img id="image-show-6" src="@Model.Image6.ToString()" alt="Image" width="100%">
+                                        }
+
+                                        <div class="file-upload-content" id="file-upload-content-6">
+                                            <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-6" width="100%" />
+                                        </div>
+                                        <br />
+                                        @{
+                                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                            {
+                                                <label class="custom-btn-upload">
+                                                    <i class="fa fa-upload"></i>
+                                                    Browse
+                                                    <input type="file" size="60" id="file-upload-input-6" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                                </label>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="zone-router" class="@(Model.SiteNetworkId != 2 ? "" : "d-none")">
+                            <div class="row">
+                                <div class="col-12">
+                                    <b>Router 2 ชุด</b>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="@(!string.IsNullOrEmpty(Model.Image7) ? "custom-form-label" : "custom-form-label-danger")">อุปกรณ์ Router ชุดที่ 1</label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="@(!string.IsNullOrEmpty(Model.Image8) ? "custom-form-label" : "custom-form-label-danger")">อุปกรณ์ Router ชุดที่ 2</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6 @(Model.EquipmentRouter1Sn == "-" ? "d-none" : "")">
+                                    <div class="file-upload custom-image-col-center">
+                                        @if (!string.IsNullOrEmpty(Model.Image7))
+                                        {
+                                            <img id="image-show-7" src="@Model.Image7.ToString()" alt="Image" width="100%">
+                                        }
+
+                                        <div class="file-upload-content" id="file-upload-content-7">
+                                            <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-7" width="100%" />
+                                        </div>
+                                        <br />
+                                        @{
+                                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                            {
+                                                <label class="custom-btn-upload">
+                                                    <i class="fa fa-upload"></i>
+                                                    Browse
+                                                    <input type="file" size="60" id="file-upload-input-7" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                                </label>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="col-6 @(Model.EquipmentRouter2Sn == "-" ? "d-none" : "")">
+                                    <div class="file-upload custom-image-col-center">
+                                        @if (!string.IsNullOrEmpty(Model.Image8))
+                                        {
+                                            <img id="image-show-8" src="@Model.Image8.ToString()" alt="Image" width="100%">
+                                        }
+
+                                        <div class="file-upload-content" id="file-upload-content-8">
+                                            <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-8" width="100%" />
+                                        </div>
+                                        <br />
+                                        @{
+                                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                            {
+                                                <label class="custom-btn-upload">
+                                                    <i class="fa fa-upload"></i>
+                                                    Browse
+                                                    <input type="file" size="60" id="file-upload-input-8" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                                </label>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 @(Model.EquipmentWifi1Set == "-" ? "d-none" : "") @(Model.SiteNetworkId == 2 ? "" : Model.SiteNetworkId == 3 ? "" : "d-none")">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image9) ? "custom-form-label" : "custom-form-label-danger")">WiFi (Aruba AP 303)</label>
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image9))
+                                    {
+                                        <img id="image-show-9" src="@Model.Image9.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-9">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-9" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-9" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image51) ? "custom-form-label" : "custom-form-label-danger")">ภาพการทดสอบรับ IP Address </label>
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image51))
+                                    {
+                                        <img id="image-show-51" src="@Model.Image51.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-51">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-51" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-51" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6 @(Model.SiteNetworkId == 2 ? "" : "d-none")">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image52) ? "custom-form-label" : "custom-form-label-danger")">วงจร Internet (100Mbps) โดยปลดสาย  WAN1 วงจรหลัก และ WAN2 วงจรรอง</label>
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image52))
+                                    {
+                                        <img id="image-show-52" src="@Model.Image52.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-52">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-52" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-52" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="@(!string.IsNullOrEmpty(Model.CircuitInternet100mbUpload) ? "custom-form-label" : "custom-form-label-danger")">Upload</label>
+                                            <input type="text" class="custom-form-input" id="InputCircuitInternet100mbUpload" value="@Model.CircuitInternet100mbUpload" required>
+                                            <div class="invalid-feedback">
+                                                Please enter information
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="@(!string.IsNullOrEmpty(Model.CircuitInternet100mbDownload) ? "custom-form-label" : "custom-form-label-danger")">Download</label>
+                                            <input type="text" class="custom-form-input" id="InputCircuitInternet100mbDownload" value="@Model.CircuitInternet100mbDownload" required>
+                                            <div class="invalid-feedback">
+                                                Please enter information
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-6 @(Model.SiteNetworkId == 2 ? "" : "d-none")">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image53) ? "custom-form-label" : "custom-form-label-danger")">วงจร 4G (20Mbps) โดยปลดสาย  WAN1 วงจรหลัก, WAN2 วงจรรอง และ วงจร Internet</label>
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image53))
+                                    {
+                                        <img id="image-show-53" src="@Model.Image53.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-53">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-53" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-53" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="@(!string.IsNullOrEmpty(Model.Circuit4g20mbUpload) ? "custom-form-label" : "custom-form-label-danger")">Upload</label>
+                                            <input type="text" class="custom-form-input" id="InputCircuit4g20mbUpload" value="@Model.Circuit4g20mbUpload" required>
+                                            <div class="invalid-feedback">
+                                                Please enter information
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="@(!string.IsNullOrEmpty(Model.Circuit4g20mbDownload) ? "custom-form-label" : "custom-form-label-danger")">Download</label>
+                                            <input type="text" class="custom-form-input" id="InputCircuit4g20mbDownload" value="@Model.Circuit4g20mbDownload" required>
+                                            <div class="invalid-feedback">
+                                                Please enter information
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 d-none">
+                            <label class="@(!string.IsNullOrEmpty(Model.Image10) ? "custom-form-label" : "custom-form-label-danger")">Router 4G 1 ชุด</label>
+                            <div class="file-upload custom-image-col-center">
+                                @if (!string.IsNullOrEmpty(Model.Image10))
+                                {
+                                    <img id="image-show-10" src="@Model.Image10.ToString()" alt="Image" width="100%">
+                                }
+
+                                <div class="file-upload-content" id="file-upload-content-10">
+                                    <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-10" width="100%" />
+                                </div>
+                                <br />
+                                @{
+                                    if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                    {
+                                        <label class="custom-btn-upload">
+                                            <i class="fa fa-upload"></i>
+                                            Browse
+                                            <input type="file" size="60" id="file-upload-input-10" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                        </label>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-6 d-none">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image12) ? "custom-form-label" : "custom-form-label-danger")">Ping www.dol.go.th -n 30</label>
+                            </div>
+                            <div class="col-6 d-none">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image16) ? "custom-form-label" : "custom-form-label-danger")">เข้าเว็บไซต์ Internet กรม ที่ดิน</label>
+                            </div>
+                            <div class="col-6 d-none">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image13) ? "custom-form-label" : "custom-form-label-danger")">Ping XXXX - 2</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6 d-none">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image12))
+                                    {
+                                        <img id="image-show-12" src="@Model.Image12.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-12">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-12" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-12" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6 d-none">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image16))
+                                    {
+                                        <img id="image-show-16" src="@Model.Image16.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-16">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-16" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-16" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6 d-none">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image13))
+                                    {
+                                        <img id="image-show-13" src="@Model.Image13.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-13">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-13" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-13" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row  d-none">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image14) ? "custom-form-label" : "custom-form-label-danger")">Ping XXXX - 3</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image15) ? "custom-form-label" : "custom-form-label-danger")">Ping XXXX - 4</label>
+                            </div>
+                        </div>
+
+                        <div class="row  d-none">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image14))
+                                    {
+                                        <img id="image-show-4" src="@Model.Image14.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-14">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-14" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-14" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image15))
+                                    {
+                                        <img id="image-show-15" src="@Model.Image15.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-15">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-15" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-15" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row d-none">
+                            @*<div class="col-6">
+                <label class="@(!string.IsNullOrEmpty(Model.Image16) ? "custom-form-label" : "custom-form-label-danger")">เข้าเว็บไซต์ Internet กรม ที่ดิน</label>
+            </div>*@
+                            <div class="col-6  d-none">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image17) ? "custom-form-label" : "custom-form-label-danger")">เข้า FTP กรมที่ดิน</label>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row d-none">
+                            @*<div class="col-6">
+                <div class="file-upload custom-image-col-center">
+                    @if (!string.IsNullOrEmpty(Model.Image16))
+                    {
+                        <img id="image-show-16" src="@Model.Image16.ToString()" alt="Image" width="100%">
+                    }
+
+                    <div class="file-upload-content" id="file-upload-content-16">
+                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-16" width="100%" />
+                    </div>
+                    <br />
+                    @{
+                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                        {
+                            <label class="custom-btn-upload">
+                                <i class="fa fa-upload"></i>
+                                Browse
+                                <input type="file" size="60" id="file-upload-input-16" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                            </label>
+                        }
+                    }
+                </div>
+            </div>*@
+
+                            <div class="col-6  d-none">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image17))
+                                    {
+                                        <img id="image-show-17" src="@Model.Image17.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-17">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-17" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-17" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row  d-none">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image18) ? "custom-form-label" : "custom-form-label-danger")">เข้าระบบผู้รับมอบอำนาจ</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image19) ? "custom-form-label" : "custom-form-label-danger")">เข้าระบบ MIS</label>
+                            </div>
+                        </div>
+
+                        <div class="row  d-none">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image18))
+                                    {
+                                        <img id="image-show-18" src="@Model.Image18.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-18">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-18" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-18" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image19))
+                                    {
+                                        <img id="image-show-19" src="@Model.Image19.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-19">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-19" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-19" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row  d-none">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image20) ? "custom-form-label" : "custom-form-label-danger")">เข้าระบบควบคุมการจัด เก็บหลักฐาน</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image21) ? "custom-form-label" : "custom-form-label-danger")">เข้าโปรแกรมบริการกรมที่ดิน</label>
+                            </div>
+                        </div>
+
+                        <div class="row  d-none">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image20))
+                                    {
+                                        <img id="image-show-20" src="@Model.Image20.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-20">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-20" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-20" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image21))
+                                    {
+                                        <img id="image-show-21" src="@Model.Image21.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-21">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-21" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-21" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 d-none">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image22) ? "custom-form-label" : "custom-form-label-danger")">ระบบพิสูจน์ตัวตนในการ ใช้งานเครือข่าย</label>
+                            </div>
+                            <div class="col-6  d-none">
+                                <label class="@(Model.SysStatusId == 4 ? "custom-form-label" : "custom-form-label-danger")"></label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 d-none">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image22))
+                                    {
+                                        <img id="image-show-22" src="@Model.Image22.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-22">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-22" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-22" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6 d-none">
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <b>
+                                    ภาพผลการทดสอบตามแบบทดสอบการติดตั้งอุปกรณ์
+                                </b>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 @(Model.SiteNetworkId == 2 ? "" : Model.SiteNetworkId == 3 ? "" : "d-none")">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image29) ? "custom-form-label" : "custom-form-label-danger")">ทดสอบ การใช้งาน Wifi : Network Connection</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image30) ? "custom-form-label" : "custom-form-label-danger")">การใช้งาน LAN ทดสอบ Authentication </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 @(Model.SiteNetworkId == 2 ? "" : Model.SiteNetworkId == 3 ? "" : "d-none")">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image29))
+                                    {
+                                        <img id="image-show-29" src="@Model.Image29.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-29">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-29" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-29" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image30))
+                                    {
+                                        <img id="image-show-30" src="@Model.Image30.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-30">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-30" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-30" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image31) ? "custom-form-label" : "custom-form-label-danger")">ภาพ ping www.dol.go.th -n 30 (response time &lt; 100 ms, ต้องไม่มี Time Out) (วงจรหลัก)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image32) ? "custom-form-label" : "custom-form-label-danger")">ภาพ tracert www.dol.go.th (วงจรหลัก)</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image31))
+                                    {
+                                        <img id="image-show-31" src="@Model.Image31.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-31">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-31" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-31" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image32))
+                                    {
+                                        <img id="image-show-32" src="@Model.Image32.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-32">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-32" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-32" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image33) ? "custom-form-label" : "custom-form-label-danger")">ทดสอบการใช้งาน เปิด Web www.dol.go.th (วงจรหลัก)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image34) ? "custom-form-label" : "custom-form-label-danger")">ภาพ ping ilands.dol.go.th -n 30 (response time &lt; 100 ms, ต้องไม่มี Time Out) (วงจรหลัก)</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image33))
+                                    {
+                                        <img id="image-show-33" src="@Model.Image33.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-33">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-33" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-33" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image34))
+                                    {
+                                        <img id="image-show-34" src="@Model.Image34.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-34">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-34" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-34" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image35) ? "custom-form-label" : "custom-form-label-danger")">ภาพ tracert ilands.dol.go.th (วงจรหลัก)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image36) ? "custom-form-label" : "custom-form-label-danger")">ทดสอบการใช้งาน เปิด Web ilands.dol.go.th (วงจรหลัก)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image35))
+                                    {
+                                        <img id="image-show-35" src="@Model.Image35.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-35">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-35" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-35" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image36))
+                                    {
+                                        <img id="image-show-36" src="@Model.Image36.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-36">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-36" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-36" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image37) ? "custom-form-label" : "custom-form-label-danger")">ภาพ ping 10.200.30.247 -n 30 (response time &lt; 100 ms, ต้องไม่มี Time Out) (วงจรหลัก)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image38) ? "custom-form-label" : "custom-form-label-danger")">ภาพ tracert 10.200.30.247 (วงจรหลัก)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image37))
+                                    {
+                                        <img id="image-show-37" src="@Model.Image37.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-37">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-37" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-37" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image38))
+                                    {
+                                        <img id="image-show-38" src="@Model.Image38.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-38">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-38" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-38" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image39) ? "custom-form-label" : "custom-form-label-danger")">ภาพ ping 8.8.8.8 -n 30 (response time &lt; 100 ms, ต้องไม่มี Time Out) (วงจรหลัก)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image40) ? "custom-form-label" : "custom-form-label-danger")">ภาพ tracert 8.8.8.8 (วงจรหลัก)</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image39))
+                                    {
+                                        <img id="image-show-39" src="@Model.Image39.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-39">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-39" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-39" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image40))
+                                    {
+                                        <img id="image-show-40" src="@Model.Image40.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-40">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-40" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-40" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image41) ? "custom-form-label" : "custom-form-label-danger")">ภาพ ping www.dol.go.th -n 30 (response time &lt; 100 ms, ต้องไม่มี Time Out) (วงจรรอง)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image42) ? "custom-form-label" : "custom-form-label-danger")">ภาพ tracert www.dol.go.th (วงจรรอง)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image41))
+                                    {
+                                        <img id="image-show-41" src="@Model.Image41.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-41">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-41" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-41" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image42))
+                                    {
+                                        <img id="image-show-42" src="@Model.Image42.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-42">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-42" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-42" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image43) ? "custom-form-label" : "custom-form-label-danger")">ทดสอบการใช้งาน เปิด Web www.dol.go.th (วงจรรอง)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image44) ? "custom-form-label" : "custom-form-label-danger")">ภาพ ping ilands.dol.go.th -n 30 (response time &lt; 100 ms, ต้องไม่มี Time Out) (วงจรรอง)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image43))
+                                    {
+                                        <img id="image-show-43" src="@Model.Image43.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-43">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-43" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-43" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image44))
+                                    {
+                                        <img id="image-show-44" src="@Model.Image44.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-44">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-44" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-44" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image45) ? "custom-form-label" : "custom-form-label-danger")">ภาพ tracert ilands.dol.go.th (วงจรรอง)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image46) ? "custom-form-label" : "custom-form-label-danger")">ทดสอบการใช้งาน เปิด Web ilands.dol.go.th (วงจรรอง)</label>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image45))
+                                    {
+                                        <img id="image-show-45" src="@Model.Image45.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-45">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-45" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-45" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image46))
+                                    {
+                                        <img id="image-show-46" src="@Model.Image46.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-46">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-46" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-46" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image47) ? "custom-form-label" : "custom-form-label-danger")">ภาพ ping 10.200.30.247 -n 30 (response time &lt; 100 ms, ต้องไม่มี Time Out) (วงจรรอง)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image48) ? "custom-form-label" : "custom-form-label-danger")">ภาพ tracert 10.200.30.247 (วงจรรอง)</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image47))
+                                    {
+                                        <img id="image-show-47" src="@Model.Image47.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-47">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-47" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-47" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image48))
+                                    {
+                                        <img id="image-show-48" src="@Model.Image48.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-48">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-48" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-48" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image49) ? "custom-form-label" : "custom-form-label-danger")">ภาพ ping 8.8.8.8 -n 30 (response time &lt; 100 ms, ต้องไม่มี Time Out) (วงจรรอง)</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image50) ? "custom-form-label" : "custom-form-label-danger")">ภาพ tracert 8.8.8.8 (วงจรรอง)</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image49))
+                                    {
+                                        <img id="image-show-49" src="@Model.Image49.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-49">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-49" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-49" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image50))
+                                    {
+                                        <img id="image-show-50" src="@Model.Image50.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-50">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-50" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-50" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <div class="row ">
+                            <div class="col-12">
+                                <label class="@(!string.IsNullOrEmpty(Model.FileApproveName) ? "custom-form-label" : "custom-form-label-danger")">เอกสารรับมอบการติดตั้ง</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row ">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.FileApproveName))
+                                    {
+                                        <img id="image-show-25" src="@Model.FileApproveName.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-25">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-25" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-25" accept=".jpg,.png,.jpeg" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+
+                            </div>
+                        </div>
+
+                        @{
+                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                            {
+                                <div class="pt-3 pb-3" style="padding-right: 50px;">
+                                    <button type="submit" class="btn btn-info btn-lg custom-button-tab1">
+                                        <i class="far fa-save"></i>
+                                    </button>
+                                </div>
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

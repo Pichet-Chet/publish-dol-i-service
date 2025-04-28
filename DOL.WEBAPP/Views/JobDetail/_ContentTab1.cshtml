@@ -1,0 +1,151 @@
+﻿@model DOL.WEBAPP.Models.Response.SiteInformationResponse
+
+
+
+<div class="row">
+
+    <div class="col-12">
+        <div class="card shadow mb-4">
+            <a href="#collapseCardTab1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardTab1">
+                <h6 class="m-0 custom-text-collapse-header">ข้อมูลหน่วยงานและผู้ติดต่อ</h6>
+            </a>
+            <div class="collapse" id="collapseCardTab1">
+                <div class="card-body">
+                    <form class="tab1 needs-validation" id="tab1" novalidate>
+                        <div class="form-group">
+                            <label class="custom-form-label">ชื่อสถานที่</label>
+                            <input type="text" class="custom-form-input" id="InputLocationName" value="@Model.LocationName" onkeydown="return false;">
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-form-label">ภาคผนวก</label>
+                            <input type="text" class="custom-form-input " id="InputSiteNetworkName" value="@Model.SiteNetworkName" onkeydown="return false;">
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-form-label">ลำดับ</label>
+                            <input type="text" class="custom-form-input " id="InputSiteNetworkSeq" value="@Model.SiteNetworkSeq" onkeydown="return false;">
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-form-label">จังหวัด</label>
+                            <input type="text" class="custom-form-input " id="InputProvinceName" value="@Model.ProvinceName" onkeydown="return false;">
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-form-label">เจ้าหน้าที่หน่วยงาน</label>
+                            <input type="text" class="custom-form-input " id="InputStaffOrganize" value="@Model.StaffOrganize">
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-form-label">เบอร์โทรติดต่อ</label>
+                            <input type="text" class="custom-form-input " id="InputTelephoneNumber" value="@Model.TelephoneNumber">
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-form-label">Latitude</label>
+                            <input type="text" class="custom-form-input " id="InputLatitude" value="@Model.Latitude">
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-form-label">Longitude</label>
+                            <input type="text" class="custom-form-input " id="InputLongitude" value="@Model.Longitude">
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+
+
+
+                        @*<div class="form-group">
+                                <label class="custom-form-label">เบอร์ติดต่อ</label>
+
+                                @{
+                                    if (Model.SysStatusId == 4)
+                                    {
+                                        <a href="tel:@Model.TelephoneNumber">
+                                            <input type="text" class="custom-form-input-link" id="InputTelephoneNumber" value="@Model.TelephoneNumber" readonly disabled>
+                                        </a>
+
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="custom-form-input " id="InputTelephoneNumber" value="@Model.TelephoneNumber" onkeydown="return false;">
+                                    }
+                                }
+
+
+                                <div class="invalid-feedback">
+                                    Please enter information
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="custom-form-label">Location</label>
+
+                                @{
+                                    var setLatitude = @Model.Latitude;
+                                    var setLongitude = @Model.Longitude;
+
+                                    if (!string.IsNullOrEmpty(setLatitude) && !string.IsNullOrEmpty(setLongitude))
+                                    {
+                                        var setLinkGoogle = "https://www.google.com/maps/?q=" + setLatitude + "," + setLongitude;
+
+                                        <a href="@setLinkGoogle" target="_blank">
+                                            <input type="text" class="custom-form-input-link" id="Input" value="@Model.Latitude , @Model.Longitude" readonly onkeydown="return false;">
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="custom-form-input-link" id="Input" value="@Model.Latitude , @Model.Longitude" readonly onkeydown="return false;">
+
+                                    }
+                                }
+
+
+                                <div class="invalid-feedback">
+                                    Please enter information
+                                </div>
+                            </div>*@
+
+
+                        @{
+                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                            {
+                                <div class="pt-3 pb-3" style="padding-right: 50px;">
+                                    <button type="submit" class="btn btn-info btn-lg custom-button-tab1">
+                                        <i class="far fa-save"></i>
+                                    </button>
+                                </div>
+                            }
+                        }
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,124 @@
+﻿@model DOL.WEBAPP.Models.Response.SiteInformationResponse
+
+
+
+<div class="row">
+
+    <div class="col-12">
+        <div class="card shadow mb-4">
+            <a href="#collapseCardTab3" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardTab3">
+                <h6 class="m-0 custom-text-collapse-header">แนบรูปภาพ - งานติดตั้ง WAN2 (วงจรรอง)</h6>
+            </a>
+            <div class="collapse" id="collapseCardTab3">
+                <div class="card-body">
+                    <form class="tab3 needs-validation" id="tab3" novalidate>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <b>รายการอุปกรณ์ และ ภาพอุปกรณ์ที่ติดตั้ง</b>
+                            </div>
+                            <div class="col-6">
+                                <b>ภาพผลการทดสอบความเร็ววงจร</b>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image4) ? "custom-form-label" : "custom-form-label-danger")">CPE Switch วงจรรอง</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image24) ? "custom-form-label" : "custom-form-label-danger")">WAN2 วงจรรอง (20Mbps) โดยปลดสาย WAN1 วงจรหลักออก</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+
+                                    @if (!string.IsNullOrEmpty(Model.Image4))
+                                    {
+                                        <img id="image-show-4" src="@Model.Image4.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-4">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-4" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-4" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+
+                                    @if (!string.IsNullOrEmpty(Model.Image24))
+                                    {
+                                        <img id="image-show-24" src="@Model.Image24.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-24">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-24" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-24" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="@(!string.IsNullOrEmpty(Model.Wan2SpeedTestUpload) ? "custom-form-label" : "custom-form-label-danger")">Upload</label>
+                                    <input type="text" class="custom-form-input" id="InputWan2SpeedTestUpload" value="@Model.Wan2SpeedTestUpload" required>
+                                    <div class="invalid-feedback">
+                                        Please enter information
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="@(!string.IsNullOrEmpty(Model.Wan2SpeedTestDownload) ? "custom-form-label" : "custom-form-label-danger")">Download</label>
+                                    <input type="text" class="custom-form-input" id="InputWan2SpeedTestDownload" value="@Model.Wan2SpeedTestDownload" required>
+                                    <div class="invalid-feedback">
+                                        Please enter information
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @{
+                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                            {
+                                <div class="pt-3 pb-3" style="padding-right: 50px;">
+                                    <button type="submit" class="btn btn-info btn-lg custom-button-tab1">
+                                        <i class="far fa-save"></i>
+                                    </button>
+                                </div>
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

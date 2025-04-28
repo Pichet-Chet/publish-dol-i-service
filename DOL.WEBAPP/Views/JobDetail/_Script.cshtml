@@ -1,0 +1,801 @@
+﻿@model DOL.WEBAPP.Models.Response.SiteInformationResponse
+
+
+<script type="text/javascript">
+
+    var SysStatusId = '@Model.SysStatusId';
+
+    var InputStaffOrganize = $('#InputStaffOrganize').val();
+    var InputTelephoneNumber = $('#InputTelephoneNumber').val();
+
+    var JobWan1 = '@Model.SiteNetwork.JobWan1';
+    var JobWan2 = '@Model.SiteNetwork.JobWan2';
+    var JobDevice = '@Model.SiteNetwork.JobDevice';
+    var JobCellular = '@Model.SiteNetwork.JobCellular';
+
+    var image3 = '@Model.Image3';
+    var image23 = '@Model.Image23';
+
+    var image4 = '@Model.Image4';
+    var image24 = '@Model.Image24';
+
+    //image5 != "" && image6 != "" && image7 != "" && image8 != "" && image9 != "" && image10 != "" && image12 != "" && image16 != "" && image22 != ""
+
+    var image1 = '@Model.Image1';
+    var image2 = '@Model.Image2';
+    var image5 = '@(Model.EquipmentFirewall1Sn == "-" ? "PASS" : Model.SiteNetworkId != 2 ? "PASS" : Model.Image5)';
+    var image6 = '@(Model.EquipmentFirewall2Sn == "-" ? "PASS" : Model.SiteNetworkId != 2 ? "PASS" : Model.Image6)';
+    var image7 = '@(Model.EquipmentRouter1Sn == "-" ? "PASS" : Model.SiteNetworkId == 2 ? "PASS" : Model.Image7)';
+    var image8 = '@(Model.EquipmentRouter2Sn == "-" ? "PASS" : Model.SiteNetworkId == 2 ? "PASS" : Model.Image8)';
+    var image9 = '@(Model.EquipmentWifi1Set == "-" ? "PASS" : Model.SiteNetworkId == 4 ? "PASS" : Model.SiteNetworkId == 5 ? "PASS" : Model.Image9)';
+    var image10 = '@(Model.EquipmentRouter4gSn == "-" ? "PASS" : Model.Image10)';
+    var image11 = '@(Model.SiteNetworkId != 2 ? "PASS" : Model.Image11)';
+    var image12 =  '@Model.Image12';
+    var image13 = '@Model.Image13';
+    var image14 = '@Model.Image14';
+    var image15 = '@Model.Image15';
+    var image16 = '@Model.Image16';
+    var image17 = '@Model.Image17';
+    var image18 = '@Model.Image18';
+    var image19 = '@Model.Image19';
+    var image20 = '@Model.Image20';
+    var image21 = '@Model.Image21';
+    var image22 = '@Model.Image22';
+
+    var image29 = '@(Model.SiteNetworkId == 4 ? "PASS" : Model.SiteNetworkId == 5 ? "PASS" : Model.Image29)';
+    var image30 = '@Model.Image30';
+    var image31 = '@Model.Image31';
+    var image32 = '@Model.Image32';
+    var image33 = '@Model.Image33';
+    var image34 = '@Model.Image34';
+    var image35 = '@Model.Image35';
+    var image36 = '@Model.Image36';
+    var image37 = '@Model.Image37';
+    var image38 = '@Model.Image38';
+    var image39 = '@Model.Image39';
+    var image40 = '@Model.Image40';
+    var image41 = '@Model.Image41';
+    var image42 = '@Model.Image42';
+    var image43 = '@Model.Image43';
+    var image44 = '@Model.Image44';
+    var image45 = '@Model.Image45';
+    var image46 = '@Model.Image46';
+    var image47 = '@Model.Image47';
+    var image48 = '@Model.Image48';
+    var image49 = '@Model.Image49';
+    var image50 = '@Model.Image50';
+    var image51 = '@Model.Image51';
+    var image52 = '@(Model.SiteNetworkId != 2 ? "PASS" : Model.Image52)';
+    var image53 = '@(Model.SiteNetworkId != 2 ? "PASS" : Model.Image53)';
+
+    var image25 = '@Model.FileApproveName';
+
+    var InputTeamInstallContactName = $('#InputTeamInstallContactName').val();
+    var InputTeamInstallContactTel = $('#InputTeamInstallContactTel').val();
+
+    var Wan1SpeedTestDownload = $('#InputWan1SpeedTestDownload').val();
+    var Wan1SpeedTestUpload = $('#InputWan1SpeedTestUpload').val();
+
+    var Wan2SpeedTestDownload = $('#InputWan2SpeedTestDownload').val();
+    var Wan2SpeedTestUpload = $('#InputWan2SpeedTestUpload').val();
+
+    var CircuitInternet100mbUpload = '@(Model.SiteNetworkId != 2 ? "PASS" : Model.CircuitInternet100mbUpload)';
+    var CircuitInternet100mbDownload = '@(Model.SiteNetworkId != 2 ? "PASS" : Model.CircuitInternet100mbDownload)';
+
+    var Circuit4g20mbUpload = '@(Model.SiteNetworkId != 2 ? "PASS" : Model.Circuit4g20mbUpload)';
+    var Circuit4g20mbDownload = '@(Model.SiteNetworkId != 2 ? "PASS" : Model.Circuit4g20mbDownload)';
+
+
+    $(document).ready(function () {
+
+        $('.collapse').on('show.bs.collapse', function () {
+            $('.collapse').not(this).collapse('hide');
+        });
+
+        onCheckStatusCollapse();
+
+        const currentLastTab = sessionStorage.getItem('lastTab');
+
+        if (currentLastTab == "tab1") {
+            $('#collapseCardTab1').addClass('show');
+            sessionStorage.setItem('lastTab', "");
+        }
+        else if (currentLastTab == "tab2") {
+            $('#collapseCardTab2').addClass('show');
+            sessionStorage.setItem('lastTab', "");
+        }
+        else if (currentLastTab == "tab3") {
+            $('#collapseCardTab3').addClass('show');
+            sessionStorage.setItem('lastTab', "");
+        }
+        else if (currentLastTab == "tab4") {
+            $('#collapseCardTab4').addClass('show');
+            sessionStorage.setItem('lastTab', "");
+        }
+        else if (currentLastTab == "tab5") {
+            $('#collapseCardTab5').addClass('show');
+            sessionStorage.setItem('lastTab', "");
+        }
+        else if (currentLastTab == "tab6") {
+            $('#collapseCardTab6').addClass('show');
+            sessionStorage.setItem('lastTab', "");
+        }
+
+    });
+
+    function backToPrevious() {
+        window.location.href = "@Url.Action("Index", "JobDashboard")";
+    }
+
+    function onCheckAllStatus() {
+        var obj = new Object();
+
+        obj.id = parseInt($('#hd_Id').val());
+        obj.sysStatusId = 4;
+
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("Update", "JobDetail")',
+            data: JSON.stringify(obj),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data) {
+
+                if (data.status) {
+
+                    OnSaveFinish("Your job is done.");
+                }
+                else {
+                    OnSaveError("บันทึกข้อมูลผิดพลาด");
+                }
+            },
+            fail: function() {
+                OnSaveError("บันทึกข้อมูลผิดพลาด");
+            }
+        });
+
+        event.preventDefault();
+
+        event.stopPropagation();
+    }
+
+
+
+    function onCheckStatusCollapse() {
+
+        var btnValid = `<button class="custom-buttom-confirm" type="button" onclick="onCheckAllStatus()"> ปิดงาน </button>`;
+        var btnInValid = `<button class="custom-buttom-not-pass" type="button"> ปิดงาน </button>`;
+        var validateNext = true;
+
+        $('#renderButton').html("");
+
+        $('[aria-controls="collapseCardTab1"]').css('background-color', '#3AC47D');
+
+        if (image3 != "" && image23 != "" && Wan1SpeedTestDownload != "" && Wan1SpeedTestUpload != "") {
+            $('[aria-controls="collapseCardTab2"]').css('background-color', '#3AC47D');
+
+            if (JobWan1 == 'True') {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+            else {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+        }
+        else {
+
+            if (SysStatusId == 4 || SysStatusId == '4') {
+                $('[aria-controls="collapseCardTab2"]').css('background-color', '#3AC47D');
+            }
+            else {
+                $('[aria-controls="collapseCardTab2"]').css('background-color', '#F7BA25');
+            }
+
+
+
+            if (JobWan1 == 'False') {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+            else {
+                validateNext = false;
+            }
+        }
+
+        if (image4 != "" && image24 != "" && Wan2SpeedTestDownload != "" && Wan2SpeedTestUpload != "") {
+            $('[aria-controls="collapseCardTab3"]').css('background-color', '#3AC47D');
+
+            if (JobWan2 == 'True') {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+            else {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+        }
+        else {
+            if (SysStatusId == 4 || SysStatusId == '4') {
+                $('[aria-controls="collapseCardTab3"]').css('background-color', '#3AC47D');
+            }
+            else {
+                $('[aria-controls="collapseCardTab3"]').css('background-color', '#F7BA25');
+            }
+
+            if (JobWan2 == 'False') {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+            else {
+                validateNext = false;
+            }
+
+        }
+
+
+
+
+        if (image1 != "" && image2 != "" &&
+            image5 != "" && image6 != "" && image7 != "" && image8 != "" && image9 != "" &&
+            image29 != "" && image30 != "" && image31 != "" && image32 != "" && image33 != "" && image34 != "" &&
+            image35 != "" && image36 != "" && image37 != "" && image38 != "" && image39 != "" && image40 != "" &&
+            image41 != "" && image42 != "" && image43 != "" && image44 != "" && image45 != "" && image46 != "" &&
+            image47 != "" && image48 != "" && image49 != "" && image50 != "" && image51 != "" && image52 != "" && image53 != "" &&
+            image25 != "" && CircuitInternet100mbUpload != "" && CircuitInternet100mbDownload != "" && Circuit4g20mbUpload != "" && Circuit4g20mbDownload != "") {
+            $('[aria-controls="collapseCardTab4"]').css('background-color', '#3AC47D');
+
+
+            if (JobDevice == 'True') {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+            else {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+        }
+        else {
+            if (SysStatusId == 4 || SysStatusId == '4') {
+                $('[aria-controls="collapseCardTab4"]').css('background-color', '#3AC47D');
+            }
+            else {
+                $('[aria-controls="collapseCardTab4"]').css('background-color', '#F7BA25');
+            }
+
+            if (JobDevice == 'False') {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+            else {
+                validateNext = false;
+            }
+        }
+
+
+
+        if (image11 != "") {
+            $('[aria-controls="collapseCardTab5"]').css('background-color', '#3AC47D');
+
+            if (JobCellular == 'True') {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+            else {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+
+        }
+        else {
+            if (SysStatusId == 4 || SysStatusId == '4') {
+                $('[aria-controls="collapseCardTab5"]').css('background-color', '#3AC47D');
+            }
+            else {
+                $('[aria-controls="collapseCardTab5"]').css('background-color', '#F7BA25');
+            }
+
+            if (JobCellular == 'False') {
+                if (validateNext == false) {
+                    validateNext = false;
+                }
+                else {
+                    validateNext = true;
+                }
+            }
+            else {
+                validateNext = false;
+            }
+
+        }
+
+
+        if ($('#InputTeamInstallContactName').val() != "" && $('#InputTeamInstallContactTel').val() != "") {
+            $('[aria-controls="collapseCardTab6"]').css('background-color', '#3AC47D');
+            if (validateNext == false) {
+                validateNext = false;
+            }
+            else {
+                validateNext = true;
+            }
+        }
+        else {
+            if (SysStatusId == 4 || SysStatusId == '4') {
+                $('[aria-controls="collapseCardTab6"]').css('background-color', '#3AC47D');
+            }
+            else {
+                $('[aria-controls="collapseCardTab6"]').css('background-color', '#F7BA25');
+            }
+            validateNext = false;
+        }
+
+
+
+        if (validateNext == true) {
+            $('#renderButton').append(`${btnValid}`);
+        }
+        else {
+            $('#renderButton').append(`${btnInValid}`);
+        }
+    }
+
+
+
+
+    $(function () {
+
+
+        $("#tab1").on("submit", function () {
+
+            var form = $(this)[0];
+
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                form.classList.add('was-validated');
+            }
+            else {
+
+                var obj = new Object();
+
+                obj.id = parseInt($('#hd_Id').val());
+                obj.staffOrganize = $('#InputStaffOrganize').val();
+                obj.telephoneNumber = $('#InputTelephoneNumber').val();
+                obj.latitude = $('#InputLatitude').val();
+                obj.longitude = $('#InputLongitude').val();
+
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("Update", "JobDetail")',
+                    data: JSON.stringify(obj),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data) {
+
+                        if (data.status) {
+
+                            OnSaveSuccessReload("บันทึกข้อมูลสำเร็จ");
+
+                            onCheckStatusCollapse();
+
+                        }
+                        else {
+                            OnSaveError("บันทึกข้อมูลผิดพลาด");
+                        }
+                    },
+                    fail: function() {
+                        OnSaveError("บันทึกข้อมูลผิดพลาด");
+                    }
+                });
+
+                event.preventDefault();
+
+                event.stopPropagation();
+            }
+        });
+
+    });
+
+
+    $(function () {
+
+
+        $("#tab2").on("submit", function () {
+
+            var form = $(this)[0];
+
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                form.classList.add('was-validated');
+            }
+            else {
+
+                var obj = new Object();
+
+                obj.id = parseInt($('#hd_Id').val());
+                obj.wan1SpeedTestDownload = $('#InputWan1SpeedTestDownload').val();
+                obj.wan1SpeedTestUpload = $('#InputWan1SpeedTestUpload').val();
+
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("Update", "JobDetail")',
+                    data: JSON.stringify(obj),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data) {
+
+                        if (data.status) {
+
+                            OnSaveSuccessReload("บันทึกข้อมูลสำเร็จ");
+
+                            onCheckStatusCollapse();
+
+                            sessionStorage.setItem('lastTab', "tab2");
+
+                        }
+                        else {
+                            OnSaveError("บันทึกข้อมูลผิดพลาด");
+                        }
+                    },
+                    fail: function() {
+                        OnSaveError("บันทึกข้อมูลผิดพลาด");
+                    }
+                });
+
+                event.preventDefault();
+
+                event.stopPropagation();
+            }
+        });
+
+    });
+
+
+    $(function () {
+
+
+        $("#tab3").on("submit", function () {
+
+            var form = $(this)[0];
+
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                form.classList.add('was-validated');
+            }
+            else {
+
+                var obj = new Object();
+
+                obj.id = parseInt($('#hd_Id').val());
+                obj.wan2SpeedTestDownload = $('#InputWan2SpeedTestDownload').val();
+                obj.wan2SpeedTestUpload = $('#InputWan2SpeedTestUpload').val();
+
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("Update", "JobDetail")',
+                    data: JSON.stringify(obj),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data) {
+
+                        if (data.status) {
+
+                            OnSaveSuccessReload("บันทึกข้อมูลสำเร็จ");
+
+                            onCheckStatusCollapse();
+
+                            sessionStorage.setItem('lastTab', "tab3");
+
+                        }
+                        else {
+                            OnSaveError("บันทึกข้อมูลผิดพลาด");
+                        }
+                    },
+                    fail: function() {
+                        OnSaveError("บันทึกข้อมูลผิดพลาด");
+                    }
+                });
+
+                event.preventDefault();
+
+                event.stopPropagation();
+            }
+        });
+
+    });
+
+    $(function () {
+
+
+        $("#tab4").on("submit", function () {
+
+            var form = $(this)[0];
+
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                form.classList.add('was-validated');
+            }
+            else {
+
+                var obj = new Object();
+
+                obj.id = parseInt($('#hd_Id').val());
+
+                obj.circuit4g20mbUpload = $('#InputCircuit4g20mbUpload').val();
+                obj.circuit4g20mbDownload = $('#InputCircuit4g20mbDownload').val();
+
+                obj.circuitInternet100mbUpload = $('#InputCircuitInternet100mbUpload').val();
+                obj.circuitInternet100mbDownload = $('#InputCircuitInternet100mbDownload').val();
+
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("Update", "JobDetail")',
+                    data: JSON.stringify(obj),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data) {
+
+                        if (data.status) {
+
+                            OnSaveSuccessReload("บันทึกข้อมูลสำเร็จ");
+
+                            onCheckStatusCollapse();
+
+                            sessionStorage.setItem('lastTab', "tab3");
+
+                        }
+                        else {
+                            OnSaveError("บันทึกข้อมูลผิดพลาด");
+                        }
+                    },
+                    fail: function() {
+                        OnSaveError("บันทึกข้อมูลผิดพลาด");
+                    }
+                });
+
+                event.preventDefault();
+
+                event.stopPropagation();
+            }
+        });
+
+    });
+
+
+    $(function () {
+
+        $("#tab6").on("submit", function () {
+
+            var form = $(this)[0];
+
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                form.classList.add('was-validated');
+            }
+            else {
+
+                var obj = new Object();
+
+                obj.id = parseInt($('#hd_Id').val());
+                obj.teamInstallContactName = $('#InputTeamInstallContactName').val();
+                obj.teamInstallContactTel = $('#InputTeamInstallContactTel').val();
+
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("Update", "JobDetail")',
+                    data: JSON.stringify(obj),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data) {
+
+                        if (data.status) {
+
+                            OnSaveSuccessReload("บันทึกข้อมูลสำเร็จ");
+
+                            sessionStorage.setItem('lastTab', "tab6");
+
+                        }
+                        else {
+                            OnSaveError("บันทึกข้อมูลผิดพลาด");
+                        }
+                    },
+                    fail: function() {
+                        OnSaveError("บันทึกข้อมูลผิดพลาด");
+                    }
+                });
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+            }
+        });
+
+    });
+
+    function readURL(input) {
+
+        var findIndexImage = input.id.split('-')[3];
+
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                //$('#image-upload-wrap-' + findIndexImage).hide();
+
+                $('#file-upload-image-' + findIndexImage).attr('src', e.target.result);
+                $('#file-upload-content-' + findIndexImage).show();
+
+                /*$('#image-title-' + findIndexImage).html(input.files[0].name);*/
+            };
+
+            reader.readAsDataURL(input.files[0]);
+
+            if (input.files.length > 0 && input.files.length > 0) {
+                var formdata = new FormData(); // FormData object
+
+                for (var i = 0; i < input.files.length; i++) {
+                    formdata.append('UploadImage' + findIndexImage , input.files[i]);
+                }
+
+                var xhr = new XMLHttpRequest();
+
+                var setUrlParameter = "id=" + $('#hd_Id').val();
+
+
+                var urllink = '@Url.Action("UpdateImage", "JobDetail")?' + setUrlParameter;
+
+                xhr.open('POST', urllink);
+                xhr.send(formdata);
+
+                xhr.onreadystatechange = function () {
+
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            OnSaveSuccessReload("บันทึกข้อมูลสำเร็จ");
+
+                            $('#image-show-' + findIndexImage).addClass('d-none');
+
+                            onCheckStatusCollapse();
+
+
+                            if (findIndexImage == 11) {
+                                sessionStorage.setItem('lastTab', "tab5");
+                            } else if (findIndexImage == 3 || findIndexImage == 23) {
+                                sessionStorage.setItem('lastTab', "tab2");
+                            }
+                            else if (findIndexImage == 4 || findIndexImage == 24) {
+                                sessionStorage.setItem('lastTab', "tab3");
+                            }
+                            else {
+                                sessionStorage.setItem('lastTab', "tab4");
+                            }
+
+                        } else {
+                            OnSaveError("เกิดข้อผิดพลาดในการบันทึกข้อมูล");
+                        }
+                    }
+                };
+            } else {
+                OnSaveError("กรุณาเลือกไฟล์รูปภาพ");
+            }
+
+        } else {
+            removeUpload(input);
+        }
+    }
+
+    function removeUpload(input) {
+
+        var findIndexImage = input.id.split('-')[2];
+
+        $('#file-upload-input-' + findIndexImage).replaceWith($('#file-upload-input-' + findIndexImage).clone());
+        $('#file-upload-content-' + findIndexImage).hide();
+        $('#image-upload-wrap-' + findIndexImage).show();
+    }
+
+
+    $('.image-upload-wrap').bind('dragover', function () {
+        $('.image-upload-wrap').addClass('image-dropping');
+    });
+    $('.image-upload-wrap').bind('dragleave', function () {
+        $('.image-upload-wrap').removeClass('image-dropping');
+    });
+
+
+    function onGetPdf() {
+
+        $('#loaderFile').removeClass("d-none");
+
+        $('#btn-get-pdf').prop('disabled', true).addClass('disabled');
+
+        var obj = new Object();
+
+        obj.id = parseInt($('#hd_Id').val());
+
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("GeneratePdfInstall", "JobDetail")?id=' + obj.id,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                window.open(response.data, '_blank');
+
+                $('#loaderFile').addClass("d-none");
+
+            },
+            fail: function() {
+                OnSaveError("ไม่สามารถดาวน์โหลดเอกสารได้");
+            },
+            complete: function () {
+                // Re-enable the button after AJAX request completes
+                $('#btn-get-pdf').prop('disabled', false).removeClass('disabled');
+            }
+        });
+
+        event.preventDefault();
+
+        event.stopPropagation();
+    }
+
+</script>

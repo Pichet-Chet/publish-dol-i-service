@@ -1,0 +1,151 @@
+﻿@model DOL.WEBAPP.Models.Response.SiteInformationResponse
+
+
+
+<div class="row">
+
+    <div class="col-12">
+        <div class="card shadow mb-4">
+            <a href="#collapseCardTab2" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardTab2">
+                <h6 class="m-0 custom-text-collapse-header">แนบรูปภาพ - งานติดตั้ง WAN1 (วงจรหลัก)</h6>
+            </a>
+            <div class="collapse" id="collapseCardTab2">
+                <div class="card-body">
+                    <form class="tab2 needs-validation" id="tab2" novalidate>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <b>รายการอุปกรณ์ และ ภาพอุปกรณ์ที่ติดตั้ง</b>
+                            </div>
+                            <div class="col-6">
+                                <b>ภาพผลการทดสอบความเร็ววงจร</b>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image3) ? "custom-form-label" : "custom-form-label-danger")">CPE Switch วงจรหลัก</label>
+                            </div>
+                            <div class="col-6">
+                                <label class="@(!string.IsNullOrEmpty(Model.Image23) ? "custom-form-label" : "custom-form-label-danger")">
+                                    @{
+                                        if (Model.SiteNetworkId == 2)
+                                        {
+                                            <span>WAN1 วงจรหลัก (40Mbps)</span>
+                                        }
+                                        else if (Model.SiteNetworkId == 3)
+                                        {
+                                            <span>
+                                                WAN1 วงจรหลัก (20Mbps)
+                                            </span>
+                                        }
+                                        else if (Model.SiteNetworkId == 4)
+                                        {
+                                            <span>
+                                                WAN1 วงจรหลัก (20Mbps)
+                                            </span>
+                                        }
+                                        else if (Model.SiteNetworkId == 5)
+                                        {
+                                            <span>
+                                                WAN1 วงจรหลัก (20Mbps)
+                                            </span>
+                                        }
+                                    }
+
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image3))
+                                    {
+                                        <img id="image-show-3" src="@Model.Image3.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-3">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-3" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-3" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="file-upload custom-image-col-center">
+                                    @if (!string.IsNullOrEmpty(Model.Image23))
+                                    {
+                                        <img id="image-show-12" src="@Model.Image23.ToString()" alt="Image" width="100%">
+                                    }
+
+                                    <div class="file-upload-content" id="file-upload-content-23">
+                                        <img class="file-upload-image" src="#" alt="your image" id="file-upload-image-23" width="100%" />
+                                    </div>
+                                    <br />
+                                    @{
+                                        if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                                        {
+                                            <label class="custom-btn-upload">
+                                                <i class="fa fa-upload"></i>
+                                                Browse
+                                                <input type="file" size="60" id="file-upload-input-23" accept=".jpg,.png,.jpeg" onchange="readURL(this);">
+                                            </label>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="@(!string.IsNullOrEmpty(Model.Wan1SpeedTestUpload) ? "custom-form-label" : "custom-form-label-danger")">Upload</label>
+                                    <input type="text" class="custom-form-input" id="InputWan1SpeedTestUpload" value="@Model.Wan1SpeedTestUpload" required>
+                                    <div class="invalid-feedback">
+                                        Please enter information
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="@(!string.IsNullOrEmpty(Model.Wan1SpeedTestDownload) ? "custom-form-label" : "custom-form-label-danger")">Download</label>
+                                    <input type="text" class="custom-form-input" id="InputWan1SpeedTestDownload" value="@Model.Wan1SpeedTestDownload" required>
+                                    <div class="invalid-feedback">
+                                        Please enter information
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @{
+                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                            {
+                                <div class="pt-3 pb-3" style="padding-right: 50px;">
+                                    <button type="submit" class="btn btn-info btn-lg custom-button-tab1">
+                                        <i class="far fa-save"></i>
+                                    </button>
+                                </div>
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

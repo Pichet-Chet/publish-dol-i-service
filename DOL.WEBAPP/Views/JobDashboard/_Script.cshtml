@@ -1,0 +1,142 @@
+﻿@model DOL.WEBAPP.Models.Response.UserInfo
+
+<script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        onSearch();
+
+        setTimeout(function () {
+
+            $("#txtSearch").focus();
+
+        }, 1000);
+    });
+
+    $(document).keypress(function (e) {
+        if (e.which == 13) {
+            onSearch();
+        }
+    });
+
+    function backToPrevious() {
+        window.location.href = "@Url.Action("Index", "Home")";
+    }
+
+
+    function onSearch() {
+
+        var filter = new Object();
+
+        filter.TextSearch = $("#txtSearch").val();
+        filter.SysStatusId = $("#selectStatus").val();
+        filter.IsAll = true;
+
+        $.ajax({
+            type: "Get",
+            contentType: "charset=utf-8",
+            data: filter,
+            url: '@Url.Action("Get", "JobDashboard")',
+            success: function (resp) {
+
+                if (resp.status) {
+
+                    $('#sectionRender').html('')
+
+                    resp.data.forEach((item) => {
+
+                        var htmlRender = ``;
+
+                        var cardBg = ``;
+                        var cardStatusBg = ``;
+
+                        var linkTel = ``;
+                        var linkMap = ``;
+
+
+                        if (item.statusId == 2) {
+                            cardBg = `custom-card-job-danger`;
+                            cardStatusBg = `custom-row-status-danger`;
+                        }
+
+                        if (item.statusId == 3) {
+                            cardBg = `custom-card-job-warning`;
+                            cardStatusBg = `custom-row-status-warning`;
+                        }
+
+                        if (item.statusId == 9) {
+                            cardBg = `custom-card-job-info`;
+                            cardStatusBg = `custom-row-status-info`;
+                        }
+
+                        if (item.statusId == 4) {
+                            cardBg = `custom-card-job-success`;
+                            cardStatusBg = `custom-row-status-success`;
+                        }
+
+                        if (item.tel != null && item.tel != "") {
+
+                            linkTel = `<div class="icon-tel">
+                                            <a href="tel:${item.tel}" target="_blank" style="color: #858796;">
+                                                <i class="fas fa-phone-alt" style="font-size:20px"></i>
+                                            </a>
+                                        </div>`;
+                        }
+                        else {
+                            linkTel = ``;
+                        }
+
+                        if (item.googleMap != null && item.googleMap != "") {
+                            linkMap = `href="${item.googleMap}" target="_blank"`;
+                        }
+
+                        htmlRender = `<div class="col-12 col-md-12 col-lg-6 col-xl-6 mb-4" style="cursor:pointer">
+                                    <div class="${cardBg}">
+
+                                       ${linkTel}
+
+                                        <div class="icon-plane">
+                                            <a ${linkMap} style="color: #858796;">
+                                                <i class="fas fa-paper-plane" style="font-size:20px"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="pl-3 pt-4" onclick="onDetail(${item.id})">
+                                            <label style="font-size: 20px; color: black; font-weight: 500;">${item.locationName} </label>
+                                        </div>
+
+                                        <div class="pl-3" onclick="onDetail(${item.id})">
+                                            <h6 style="color:#000000">( ${item.networkName} )</small>
+                                        </div>
+
+                                        <div class="pl-3 pt-5" onclick="onDetail(${item.id})">
+                                            <label style="color:#000000"> ${item.address} </label>
+                                        </div>
+
+                                        <div class="${cardStatusBg}" onclick="onDetail(${item.id})">
+                                            ${item.statusName}
+                                        </div>
+                                    </div>
+                                </div>`;
+
+
+                        $('#sectionRender').append(htmlRender)
+
+
+                    });
+
+                }
+                else {
+                    $('#sectionRender').html('')
+                }
+            }
+        });
+    }
+
+    function onDetail(id) {
+
+        window.location.href = "@Url.Action("Index", "JobDetail")?id=" + id;
+
+    }
+
+</script>

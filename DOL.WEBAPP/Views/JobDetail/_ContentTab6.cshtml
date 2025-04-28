@@ -1,0 +1,50 @@
+﻿@model DOL.WEBAPP.Models.Response.SiteInformationResponse
+
+
+
+<div class="row">
+
+    <div class="col-12">
+        <div class="card shadow mb-4">
+            <a href="#collapseCardTab6" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardTab6">
+                <h6 class="m-0 custom-text-collapse-header">ข้อมูลทีมติดตั้ง</h6>
+            </a>
+            <div class="collapse" id="collapseCardTab6">
+                <div class="card-body">
+                    <form class="tab6 needs-validation" id="tab6" novalidate>
+                        <div class="form-group">
+                            <label class="@(!string.IsNullOrEmpty(Model.TeamInstallContactName) ? "custom-form-label" : "custom-form-label-danger")">ชื่อ-นามสกุล ผู้ติดตั้ง</label>
+                            <input type="text" class="custom-form-input" id="InputTeamInstallContactName" value="@Model.TeamInstallContactName" required>
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="@(!string.IsNullOrEmpty(Model.TeamInstallContactTel) ? "custom-form-label" : "custom-form-label-danger")">เบอร์โทรติดต่อ</label>
+                            <input type="text" class="custom-form-input" id="InputTeamInstallContactTel" value="@Model.TeamInstallContactTel" required>
+                            <div class="invalid-feedback">
+                                Please enter information
+                            </div>
+                        </div>
+
+
+                        @{
+                            if (Model.SysStatusId != 4 || Model.SysStatusId == 9)
+                            {
+                                <div class="pt-3 pb-3" style="padding-right: 50px;">
+                                    <button type="submit" class="btn btn-info btn-lg custom-button-tab1">
+                                        <i class="far fa-save"></i>
+                                    </button>
+                                </div>
+                            }
+                        }
+
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

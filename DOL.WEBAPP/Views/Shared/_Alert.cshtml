@@ -1,0 +1,84 @@
+﻿<script type="text/javascript">function OnSaveSuccess(message) {
+
+        Swal.fire({
+            icon: 'success',
+            html: message,
+            type: 'success',
+            buttonsStyling: false,
+
+            //sweet alert for "Confirm" Buttom
+            showConfirmButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonClass: 'btn-flat shadow btn btn-success',
+            confirmButtonText: 'ตกลง',
+
+        })
+    }
+
+    function OnSaveSuccessReload(message) {
+
+        Swal.fire({
+            icon: 'success',
+            html: message,
+            type: 'success',
+            buttonsStyling: false,
+
+            //sweet alert for "Confirm" Button
+            showConfirmButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonClass: 'btn-flat shadow btn btn-success',
+            confirmButtonText: 'ตกลง',
+        }).then((result) => {
+            // Check if the user clicked the "OK" button
+            if (result.isConfirmed) {
+                // Reload the page
+                location.reload();
+            }
+        });
+    }
+
+
+
+    function OnSaveError(message) {
+        Swal.fire({
+            icon: 'error',
+            html: message,
+            type: 'error',
+            buttonsStyling: false,
+
+            //sweet alert for "Cancel" Buttom
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            cancelButtonClass: 'btn-flat shadow btn btn-danger ml-1',
+            cancelButtonText: 'ลองใหม่อีกครั้ง !',
+
+            //sweet alert for "Confirm" Buttom
+            showConfirmButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonClass: 'btn-flat shadow btn btn-success',
+            confirmButtonText: 'ตกลง',
+
+        })
+    }
+
+    function OnSaveWarning(message) {
+        Swal.fire({
+            icon: 'warning',
+            html: message,
+            type: 'warning',
+            buttonsStyling: false,
+
+            //sweet alert for "Cancel" Buttom
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            cancelButtonClass: 'btn-flat shadow btn btn-danger ml-1',
+            cancelButtonText: 'ลองใหม่อีกครั้ง !',
+
+            //sweet alert for "Confirm" Buttom
+            showConfirmButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonClass: 'btn-flat shadow btn btn-success',
+            confirmButtonText: 'ตกลง',
+
+        })
+    }</script>

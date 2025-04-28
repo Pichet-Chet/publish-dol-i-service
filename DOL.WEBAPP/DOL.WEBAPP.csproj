@@ -1,0 +1,75 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>5ac6fca3-3da8-472f-9df8-d16540f30248</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Views\SignIn\" />
+    <None Remove="Views\JobDashboard\" />
+    <None Remove="Views\JobDetail\" />
+    <None Remove="Models\Filter\" />
+    <None Remove="Models\Response\" />
+    <None Remove="Repository\" />
+    <None Remove="Repository\AuthenticationRepository\" />
+    <None Remove="Extension\" />
+    <None Remove="Repository\JobRepairRepository\" />
+    <None Remove="Repository\JobOnsiteRepository\" />
+    <None Remove="Models\Pagination\" />
+    <None Remove="Models\Request\" />
+    <None Remove="Views\Error\" />
+    <None Remove="Extension\GenerateDocument\" />
+    <None Remove="Resource\" />
+    <None Remove="Resource\fonts\" />
+    <None Remove="Resource\images\" />
+    <None Remove="Models\PaperGeneration\" />
+    <None Remove="Models\Constants\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\SignIn\" />
+    <Folder Include="wwwroot\custom\" />
+    <Folder Include="wwwroot\custom\images\" />
+    <Folder Include="Views\JobDashboard\" />
+    <Folder Include="Views\JobDetail\" />
+    <Folder Include="Models\Filter\" />
+    <Folder Include="Models\Response\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Repository\AuthenticationRepository\" />
+    <Folder Include="Extension\" />
+    <Folder Include="Repository\JobRepairRepository\" />
+    <Folder Include="Repository\JobOnsiteRepository\" />
+    <Folder Include="Models\Pagination\" />
+    <Folder Include="Models\Request\" />
+    <Folder Include="Views\Error\" />
+    <Folder Include="Extension\GenerateDocument\" />
+    <Folder Include="Resource\" />
+    <Folder Include="Resource\fonts\" />
+    <Folder Include="Resource\images\" />
+    <Folder Include="Models\PaperGeneration\" />
+    <Folder Include="Models\Constants\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\custom\" />
+    <Content Remove="wwwroot\custom\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.2" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+  </ItemGroup>
+</Project>

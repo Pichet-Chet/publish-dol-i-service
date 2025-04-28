@@ -1,0 +1,94 @@
+﻿@model DOL.WEBAPP.Models.Response.UserInfo
+<!-- Begin Page Content -->
+<div class="container-fluid custom-height-screen">
+
+    <!-- Content Row -->
+    <div class="row" style="padding-top: 10%;">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-12 mb-4">
+            <div class="custom-button-align">
+                <a href="@Url.Action("Index","JobDashboard")" class="btn custom-buttom">
+                    ตารางงานทั้งหมด
+                </a>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        @*<div class="col-12 mb-4">
+            <div class="custom-button-align">
+
+                @{
+
+                    if (!string.IsNullOrEmpty(Model.TemplateConfig))
+                    {
+                        <a onclick="window.location.href = '//' + '@Model.TemplateConfig'" class="btn custom-buttom">
+                            Template Config
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="btn custom-buttom">
+                            Template Config
+                        </a>
+                    }
+
+                }
+
+                <a></a>
+
+
+            </div>
+        </div>*@
+
+        <div class="signout-button" onclick="onSignOut()">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+
+    </div>
+
+    <!-- Content Row -->
+    <!-- Content Row -->
+
+
+</div>
+<!-- /.container-fluid -->
+
+<script>
+    function onSignOut() {
+        window.location.href = '@Url.Content("~/")' + "SignOut";
+    }
+
+</script>
+
+<style>
+
+    .signout-button {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: #ffdde6;
+        padding: 5px;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .custom-height-screen {
+        height: 50em;
+    }
+
+    .custom-button-align {
+        text-align-last: center;
+    }
+
+    .custom-buttom {
+        align-content: center;
+        font-size: xx-large;
+        color: white;
+        width: 306px;
+        height: 83px;
+        background: #545CD8 0% 0% no-repeat padding-box;
+        box-shadow: 0px 6px 6px #00000038;
+        border-radius: 42px;
+    }
+</style>

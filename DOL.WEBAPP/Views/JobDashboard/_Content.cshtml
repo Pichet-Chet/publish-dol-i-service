@@ -1,0 +1,80 @@
+﻿                <!-- Begin Page Content -->
+<div class="container-fluid custom-height-screen">
+
+    <!-- Page Heading -->
+
+    <div class="align-items-center justify-content-between">
+        @*<span class="h5 mb-0 text-gray-800" onclick="backToPrevious()" style="cursor:pointer"> หน้าแรก / </span>*@
+
+        <div class="row">
+            <div class="col-7">
+                <span class="h5 mb-0 text-gray-800" style="font-size: 25px; font-weight:bold;"> ตารางงานทั้งหมด </span>
+            </div>
+            <div class="col-5">
+                <div class="form-group">
+                    <select class="form-control" id="selectStatus" onchange="onSearch()">
+                        <option value="">All status</option>
+                        <option value="2">Pending</option>
+                        <option value="3">On process</option>
+                        <option value="4">Complete</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <hr style="border-top: 3px solid #575757; " />
+
+    <div class="row pb-2">
+        <div class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" style="width:100%">
+            <div class="input-group">
+                <input type="text" id="txtSearch" class="form-control form-control-lg bg-white border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn" style="background-color: white;" type="button" onclick="onSearch()">
+                        <i class="fas fa-search fa-sm" style="font-size: 25px; color: #575757;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row" id="sectionRender">
+
+        <!-- Earnings (Monthly) Card Example -->
+        @*<div class="col-12 col-md-6 mb-4">
+                <div class="custom-card-job">
+                    <div class="pl-3 pt-4">
+                        <label class="h5">ชื่อสถานที่ </label>
+                    </div>
+
+                    <div class="icon-tel">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+
+                    <div class="icon-plane">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+
+                    <div class="pl-3">
+                        <small>(ภาคผนวก)</small>
+                    </div>
+
+                    <div class="pl-3 pt-5">
+                        <label> Address </label>
+                    </div>
+
+                    <div class="custom-row-status">
+                        Complete
+                    </div>
+                </div>
+            </div>*@
+
+    </div>
+
+
+</div>
+<!-- /.container-fluid -->

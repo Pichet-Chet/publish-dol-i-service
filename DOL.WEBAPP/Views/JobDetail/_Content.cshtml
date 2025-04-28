@@ -1,0 +1,75 @@
+﻿@model DOL.WEBAPP.Models.Response.SiteInformationResponse
+
+<div class="container-fluid">
+
+    @Html.Hidden("hd_Id", Model.Id)
+
+
+    <!-- Page Heading -->
+    <div class="align-items-center justify-content-between mb-4">
+        @*<span class="h5 mb-0 text-gray-800" onclick="backToPrevious()" style="cursor:pointer"> งานทั้งหมด / </span>*@
+        @*<span class="h5 mb-0 text-gray-800"> @Model.LocationName </span>*@
+    </div>
+
+
+    @{
+        @await Html.PartialAsync("_ContentTab1")
+
+        if (Model.SiteNetwork.JobWan1 == true)
+        {
+            @await Html.PartialAsync("_ContentTab2")
+        }
+
+
+        if (Model.SiteNetwork.JobWan2 == true)
+        {
+            @await Html.PartialAsync("_ContentTab3")
+        }
+
+
+        if (Model.SiteNetwork.JobDevice == true)
+        {
+            @await Html.PartialAsync("_ContentTab4")
+        }
+
+
+        if (Model.SiteNetwork.JobCellular == true)
+        {
+            @await Html.PartialAsync("_ContentTab5")
+        }
+
+
+        @await Html.PartialAsync("_ContentTab6")}
+
+
+    @{
+
+
+        if (Model.SysStatusId != 4)
+        {
+            <div class="row pb-5" style="text-align: center;">
+                <div class="col-12" id="renderButton">
+                    @*<button class="custom-buttom-confirm" type="button" onclick="onCheckAllStatus()"> NEXT </button>*@
+                </div>
+            </div>
+        }
+        else
+        {
+            if (Model.SiteNetworkId != 1)
+            {
+                <div class="row pb-5" style="text-align: center;">
+                    <div class="col-12">
+                        <button class="custom-buttom-download" id="btn-get-pdf" type="button" onclick="onGetPdf()"> Print รายงานรูปภาพการติดตั้ง </button>
+
+                        <div class="loader d-none" id="loaderFile" style="position: fixed;bottom: 15px;right: 30px;"></div>
+                    </div>
+                </div>
+            }
+        }
+    }
+
+
+
+
+</div>
+<!-- /.container-fluid -->
